@@ -1,0 +1,124 @@
+<!DOCTYPE html>  
+<html lang="zh-CN">  
+<head>  
+    <meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>人脸识别</title>  
+	<script src="./lib/jquery-3.1.1.min.js"></script>
+    <script src="./lib/jquery.facedetection.js"></script> 
+	<script src="./lib/jquery.timers-1.2.js"></script>
+	<script src="./lib/jquery-ui.min.js"></script>
+	<script src="./lib/jquery.fileupload.js"></script>
+	<script src="./lib/jquery.ui.widget.js"></script>
+	<script src="./lib/jquery.iframe-transport.js"></script>
+	<script src="./lib/video.js"></script>
+	<script src="./lib/ljq_debug.js"></script>
+	<link rel="stylesheet" href="./css/styles.css">
+	<link rel="stylesheet" href="./css/jquery-ui.min.css" />
+    <style>
+	.video-container {
+		position: relative;
+		width: 640px;
+		height: 480px;
+		margin: 20px auto;
+		border: 10px solid #fff;
+		box-shadow: 0 5px 5px #000;
+	}
+	.img-container {
+		position: relative;
+		width: 640px;
+		height: 480px;
+		text-align:center;
+		margin: 20px auto;
+	}
+	.control-container {
+		position: relative;
+		height: 480px;
+		width: 640px;
+		margin: 20px auto;
+	}
+	.control-btn {
+		margin-left: 5px;
+		width: 70px;
+		height: auto;
+	}
+	.face {
+		position: absolute;
+		border: 2px solid #FFF;
+	}
+	.bar-progress {
+		height: 18px;
+		background: green;
+	}
+    </style>
+</head>  
+<body>
+    <div id="div-video-container" class="video-container">
+        <video id="video" autoplay="true"><video>
+    </div>
+    <div id="div-img-container" class="img-container" align="center" style="display:none">
+		<img id="img-selImg" height="480"/>
+    </div>
+	<div class="control-container" style="position: relative;">
+		<a id="btn-image-file" class="control-btn" href="#">本地照片</a>
+		<a id="btn-image-camera" class="control-btn" style="width: 80px;" href="#">摄像头扫脸</a>
+		<a id="btn-to-register" class="control-btn" href="#">人脸登记</a>
+		<a id="btn-search" class="control-btn" href="#">人脸识别</a>
+		<a id="btn-compare" class="control-btn" href="#">人脸比对</a>
+	<div>
+	<div id="div-hide" style="display:none">
+		 <input type="file" id="file-selImg" name="selImg" accept="image/png,image/jpeg" ></input>
+		 <input type="file" id="file-selImg4compare" name="selImg" accept="image/png,image/jpeg" ></input>
+		 <img id="img-cameraImg" height="480"/>
+	</div>
+	<div id="progress">
+		<div class="bar-progress" style="width: 0%;"></div>
+	</div>
+	<div id="dialog-form" title="信息录入">
+		<p class="validateTips">所有的表单字段都是必填的。</p>
+		<form>
+			<fieldset>
+				<label for="workNum">工号</label>
+				<input type="text" name="workNum" id="workNum" placeholder="11725" class="text ui-widget-content ui-corner-all"></br>
+				<label for="name">名字</label>
+				<input type="text" name="name" id="name" placeholder="李君强" class="text ui-widget-content ui-corner-all">
+			</fieldset>
+		</form>
+	</div>
+	<div id="dialog-result" title="结果">
+		<p id="result-title" class="validateTips" style="margin:0px"></p>
+		<form>
+			<fieldset id="result-baseinfo">
+				<label for="workNum">工号</label>
+				<input type="text" name="workNum" id="result-workNum" readonly="readonly" class="text ui-widget-content ui-corner-all"></br>
+				<label for="name">名字</label>
+				<input type="text" name="name" id="result-name" readonly="readonly" class="text ui-widget-content ui-corner-all">
+			</fieldset>
+			<fieldset id="result-imginfo1">
+				<label for="age1">年龄</label>
+				<input type="text" name="age1" id="result-age1" readonly="readonly" class="text ui-widget-content ui-corner-all"></br>
+				<label for="gender1">性别</label>
+				<input type="text" name="gender1" id="result-gender1" readonly="readonly" class="text ui-widget-content ui-corner-all"></br>
+				<label for="beauty1">颜值</label>
+				<input type="text" name="beauty1" id="result-beauty1" readonly="readonly" class="text ui-widget-content ui-corner-all"></br>
+				<label for="pic1">照片</label><img name="pic1" id="result-img1" height="48"/>
+			</fieldset>
+			<fieldset id="result-imginfo2"style="display:none">
+				<label for="pic2">系统中最相似的照片</label><img name="pic2" id="result-img2" height="48"/></br>
+				<label for="confidence">相似度</label>
+				<input type="text" name="confidence" id="result-confidence" readonly="readonly" class="text ui-widget-content ui-corner-all">
+			</fieldset>
+			<fieldset id="result-compare" style="display:none">
+				<img name="compare-pic1" id="compare-pic1" height="48"/>
+				<img name="compare-pic2" id="compare-pic2" height="48"/></br>
+				<label for="compare-confidence">相似度</label>
+				<input type="text" name="compare-confidence" id="compare-confidence" readonly="readonly" class="text ui-widget-content ui-corner-all">
+			</fieldset>
+		</form>
+	</div>
+	<div id="dialog-load" title="loading">加载中，请稍后。。。</div>
+	<div id="dialog-alert" title="信息"></div>
+	
+</body>  
+<script src="./index.js"></script> 
+<html>  

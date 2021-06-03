@@ -1,0 +1,33 @@
+{
+  "name": "way",
+  "version": "1.0.0",
+  "description": "The face++ demo that find \"who are you\".",
+  "main": "app.js",
+  "repository": {
+    "type": "git",
+    "url": "https://gitee.com/junskd/way"
+  },
+  "keywords": [
+    "wayOnNodejs"
+  ],
+  "author": "lijunqiang",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "~1.18.2",
+    "asyncawait": "^1.0.6",
+    "cookie-parser": "~1.4.3",
+    "bluebird": "^3.4.7",
+    "debug": "~2.6.9",
+    "ejs": "~2.5.7",
+    "express": "~4.15.5",
+    "jquery": "^3.2.1",
+    "morgan": "~1.9.0",
+    "multer": "^1.3.0",
+    "serve-favicon": "~2.4.5",
+    "moment": "^2.17.1",
+    "mongoomise": "^0.0.8",
+    "mongoose": "^4.7.6",
+    "uuid": "^3.0.1",
+    "request": "^2.79.0"
+  }
+}

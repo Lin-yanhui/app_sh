@@ -1,0 +1,11 @@
+{
+    "db": "mongodb://localhost:27017/DOClever",
+    "faceApiUrl": "https://api-cn.faceplusplus.com/facepp/v3",
+    "_faceApiKey": "lskNZZsGZqygjKYgWeLn1C65HM95i0EP",
+    "_faceApiSecret": "aXTXEsrIv9kvS6YbbnXSeqSHGbsvAPLo",
+	"faceApiKey": "_TpgB7cqnjTFvhAXEwaSZpSd6BYF41Tw",
+	"faceApiSecret": "GZblyLq9Qf-LKpPL0U8r0x8MKhK9jusQ",
+    "facePath": "/public/faces",
+	"faceOuterId":"KYEE_FACESET_LJQ_DEMO",
+    "httpsPort": 443
+}

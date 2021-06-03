@@ -1,0 +1,9 @@
+/* Base */
+
+body{
+	background:#000 fixed url(../img/background.jpg) repeat top center;
+}
+a {
+    color: inherit;
+    text-decoration: none;
+}
